@@ -7,6 +7,6 @@ app = Flask(__name__)
 # Rota inicial
 @app.route("/", methods=["GET"])
 def pagina_inicial():
-    return 'co'
+    return render_template("index.html")
 
 app.run(debug=True, host="0.0.0.0", port=8080)
