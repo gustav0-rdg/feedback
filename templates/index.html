@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina Principal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style-form.css') }}">
+</head>
+<body>
+    <h1>Comentarios Canalhas</h1>
+    <form action="">
+        <label for="nomeUsuario">Nome de usuario <input type="text" name="nomeUsuario" id="nomeUsuario"></label>
+        <label for="comentario">Comentario <input type="text" name="comentario" id="comentario"></label>
+        <button>Enviar</button>
+    </form>
+</body>
+</html>
