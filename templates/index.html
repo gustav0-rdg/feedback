@@ -4,14 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagina Principal</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style-form.css') }}">
+    <!-- Linkando o css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style-form.css') }}">
+    <!-- Link da fonte do google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Comentarios Canalhas</h1>
-    <form action="">
-        <label for="nomeUsuario">Nome de usuario <input type="text" name="nomeUsuario" id="nomeUsuario"></label>
-        <label for="comentario">Comentario <input type="text" name="comentario" id="comentario"></label>
-        <button>Enviar</button>
-    </form>
+    <section class="container-geral">
+        <div class="container-geral__separar">   
+            <h1>Comentarios Canalhas</h1>
+            <!-- Formulario com os comentarios e nome de usuario -->
+            <form action="/post/comentarios" class="container-geral__form">
+                <label for="nomeUsuario">Nome de usuário </label>
+                <input type="text" name="nomeUsuario" id="nomeUsuario" class="container-geral__form--input"> 
+
+                <label for="comentario">Comentário </label>
+                <input type="text" name="comentario" id="comentario" class="container-geral__form--input">
+                <button class="container-geral__form--button">Enviar</button>
+            </form>
+        </div>
+    </section>
+
 </body>
 </html>

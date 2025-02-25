@@ -1,0 +1,79 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* definindo container geral */
+
+.container-geral{
+    width: 100vw;
+    height: 100vh;
+    gap: 1rem;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+/* container do formulario */
+
+.container-geral__separar{
+    width: 30%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(169, 202, 246);
+    border-radius: 10px;
+    gap: 1rem;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+    transition: 2s ease;
+}
+
+.container-geral__separar:hover{
+    background-color: rgb(141, 190, 255);
+}
+/* Area geral do formulario */
+
+.container-geral__form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    width: 80%;
+    height: 60%;
+    gap: 0.3rem;
+}
+
+/* Formatando o input do formulario */
+
+.container-geral__form--input{
+    width: 100%;
+    height: 20%;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+    outline-color: rgb(141, 190, 255);
+}
+
+/* Formatando o botao do formulario */
+
+.container-geral__form--button{
+    width: 100%;
+    height: 20%;
+    border-radius: 10px;
+    border: 0px solid black;
+    background-color: rgb(255, 255, 255);
+    transition: 1s ease;
+}
+
+.container-geral__form--button:hover{
+    background-color: black;
+    color: white;
+}
+
