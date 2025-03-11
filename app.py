@@ -4,7 +4,10 @@ from flask import Flask, render_template, request, redirect
 import datetime
 # Importando o mysql
 import mysql.connector
-
+# Importando classe para criar conexao
+from data.conexao import Conexao
+# Importando classe que envia a mensagem para o banco de dados
+from model.controller_mensagem import Mensagem
 # Criando a variavel para instanciar o Flask
 app = Flask(__name__)
 
@@ -21,31 +24,10 @@ def cadastrar_comentario():
     # Pegando as informações do input 
 
     username = request.form.get("nomeUsuario")
-    comentario = request.form.get("comentario")
-    dataHora = datetime.datetime.today()
-
-    # Cadastrando informações no banco de dados
-
-    conexao = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="root",
-        database = "dbFeedback"
-    )
-
-    cursorDb = conexao.cursor()
-    # Comando do sql que sera executado
-    sql = """INSERT INTO tbComentarios (username, comentarios, dataHora) 
-            VALUES (%s, %s, %s)"""
-    # Valores que serao inseridos no sql
-    valores = (username, comentario, dataHora)
-    # Executando o comando (sql (comando), valores(valores))
-    cursorDb.execute(sql, valores)
-    # completando a inserção no banco de dados
-    conexao.commit()
-    # fechando a conexao
-    conexao.close()
-    cursorDb.close()
+    mensagem = request.form.get("mensagem")
+   
+    # Importando a funcao da classe para enviar a mensagem
+    Mensagem.cadastrar_mensagem(username, mensagem)
     return redirect("/")
 
 
