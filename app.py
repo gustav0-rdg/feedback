@@ -14,8 +14,8 @@ app = Flask(__name__)
 # Rota inicial
 @app.route("/", methods=["GET"])
 def pagina_inicial():
-    
-    return render_template("index.html")
+    mensagens = Mensagem.recuperar_mensagens()
+    return render_template("index.html", mensagens = mensagens)
 
 # Rota para pegar as informações do formulario
 

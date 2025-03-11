@@ -31,10 +31,12 @@
 
         <div class="container-geral__mensagens">
             <h1 class="container-geral__mensagens-titulo">Mensagens</h1>
-            <div class="container-geral__mensagens-mensagem">
-                <p>Usuario: <p>
-                <p>Mensagem: </p>
-            </div>
+            {% for mensagem in mensagens %}
+                <div class="container-geral__mensagens-mensagem">
+                    <p>Usuario: {{mensagem.username}}<p>
+                    <p>Mensagem: {{mensagem.comentarios}} </p>
+                </div>
+            {% endfor %}
         </div>
     </section>
 
