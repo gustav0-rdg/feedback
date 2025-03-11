@@ -24,3 +24,22 @@ class Mensagem:
         # fechando a conexao
         conexao.close()
         cursorDb.close()
+    
+    def recuperar_mensagens():
+        # Criar Conexao
+        conexao = Conexao.criar_conexao()
+        cursorDb = conexao.cursor(dictionary=True)
+        # Codigo SQL
+        sql = """select username, comentarios from tbComentarios;"""
+        # Executando o comando 
+        cursorDb.execute(sql)
+        # Recuperando os dados e guardando em uma variavel
+        resultado = cursorDb.fetchall()
+        # Fechando a conexao
+        conexao.close()
+        cursorDb.close()
+
+        return resultado
+    
+# Teste
+    
