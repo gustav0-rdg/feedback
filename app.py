@@ -31,5 +31,8 @@ def cadastrar_comentario():
     Mensagem.cadastrar_mensagem(username, mensagem)
     return redirect("/")
 
-
+@app.route("/delete/mensagem/<codigo>")
+def excluir_comentario(codigo):
+    return redirect("/")
+    
 app.run(debug=True, host="0.0.0.0", port=8080)
