@@ -33,8 +33,13 @@
             <h1 class="container-geral__mensagens-titulo">Mensagens</h1>
             {% for mensagem in mensagens %}
                 <div class="container-geral__mensagens-mensagem">
-                    <p>Usuario: {{mensagem.username}}<p>
-                    <p>Mensagem: {{mensagem.comentarios}} </p>
+                    <p>Usuario: {{mensagem.nome}}<p>
+                    <p>Mensagem: {{mensagem.comentario}} </p>
+                    <div class="button-div">
+                        <button class="button-mensagens"><a href="/delete/mensagem/{{mensagem.cod_comentario}}">Excluir</a></button>
+                        <button class="button-mensagens"><a href="">Like</a></button>
+                        <button class="button-mensagens"><a href="">Deslike</a></button>
+                    </div>
                 </div>
             {% endfor %}
         </div>
