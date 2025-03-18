@@ -33,6 +33,12 @@ def cadastrar_comentario():
 
 @app.route("/delete/mensagem/<codigo>")
 def excluir_comentario(codigo):
+    Mensagem.excluir_mensagem(codigo)
     return redirect("/")
-    
+
+@app.route("/aumenta/mensagem/<codigo>")
+def aumentar_curtidas(codigo):
+    Mensagem.add_likes(codigo)
+    return redirect("/")
+
 app.run(debug=True, host="0.0.0.0", port=8080)
