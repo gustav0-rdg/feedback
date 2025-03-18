@@ -37,8 +37,12 @@
                     <p>Mensagem: {{mensagem.comentario}} </p>
                     <div class="button-div">
                         <button class="button-mensagens"><a href="/delete/mensagem/{{mensagem.cod_comentario}}">Excluir</a></button>
-                        <button class="button-mensagens"><a href="">Like</a></button>
+                        <button class="button-mensagens"><a href="/aumenta/mensagem/{{mensagem.cod_comentario}}">Like</a></button>
                         <button class="button-mensagens"><a href="">Deslike</a></button>
+                    </div>
+                    <div>
+                        <p>Likes: {{mensagem.curtidas}}</p>
+                        <p>Deslikes: {{mensagem.deslikes}}</p>
                     </div>
                 </div>
             {% endfor %}
