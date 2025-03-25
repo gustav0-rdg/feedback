@@ -14,7 +14,9 @@ from model.controller_usuario import Usuario
 app = Flask(__name__)
 
 # Rota inicial
-
+@app.route("/")
+def pagina_login():
+    return render_template("login.html")
 @app.route("/mensagem", methods=["GET"])
 def pagina_inicial():
     mensagens = Mensagem.recuperar_mensagens()
