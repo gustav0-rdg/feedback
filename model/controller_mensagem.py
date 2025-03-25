@@ -75,3 +75,20 @@ class Mensagem:
         # fechando a conexao
         conexao.close()
         cursorDb.close()
+
+    def remove_likes(codigo):
+        conexao = Conexao.criar_conexao()
+                
+        cursorDb = conexao.cursor()
+        # Comando do sql que sera executado
+        sql = """UPDATE     tb_comentarios
+                SET curtidas = curtidas -1 
+                WHERE cod_comentario = %s"""
+        valor = (codigo,)
+        # Executando o comando (sql (comando), valores(valores))
+        cursorDb.execute(sql, valor)
+        # completando a inserção no banco de dados
+        conexao.commit()
+        # fechando a conexao
+        conexao.close()
+        cursorDb.close()

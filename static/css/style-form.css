@@ -79,6 +79,9 @@
     background-color: rgb(255, 255, 255);
     transition: 1s ease;
     gap: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .container-geral__form--button:hover{

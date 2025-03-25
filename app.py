@@ -8,11 +8,14 @@ import mysql.connector
 from data.conexao import Conexao
 # Importando classe que envia a mensagem para o banco de dados
 from model.controller_mensagem import Mensagem
+from model.controller_usuario import Usuario
+
 # Criando a variavel para instanciar o Flask
 app = Flask(__name__)
 
 # Rota inicial
-@app.route("/", methods=["GET"])
+
+@app.route("/mensagem", methods=["GET"])
 def pagina_inicial():
     mensagens = Mensagem.recuperar_mensagens()
     return render_template("index.html", mensagens = mensagens)
@@ -29,16 +32,33 @@ def cadastrar_comentario():
    
     # Importando a funcao da classe para enviar a mensagem
     Mensagem.cadastrar_mensagem(username, mensagem)
-    return redirect("/")
+    return redirect("/mensagem")
 
 @app.route("/delete/mensagem/<codigo>")
 def excluir_comentario(codigo):
     Mensagem.excluir_mensagem(codigo)
-    return redirect("/")
+    return redirect("/mensagem")
 
 @app.route("/aumenta/mensagem/<codigo>")
 def aumentar_curtidas(codigo):
     Mensagem.add_likes(codigo)
+    return redirect("/mensagem")
+
+@app.route("/diminui/mensagem/<codigo>")
+def remover_curtidas(codigo):
+    Mensagem.remove_likes(codigo)
+    return redirect("/mensagem")
+
+@app.route("/cadastrar")
+def cadastrar_usuario():
+    return render_template("cadastrar.html")
+
+@app.route("/cadastrar/usuario", methods=["POST"])
+def add_usuario():
+    username = request.form.get("usuario")
+    nome = request.form.get("nome")
+    senha = request.form.get("senha")
+    Usuario.cadastrar_usuario(username, nome, senha)
     return redirect("/")
 
 app.run(debug=True, host="0.0.0.0", port=8080)
