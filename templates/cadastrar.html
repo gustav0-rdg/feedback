@@ -9,6 +9,7 @@
 </head>
 <body>
     <section class="container-geral">
+        <h1>Pagina de cadastro</h1>
         <form action="/cadastrar/usuario" method="post" class="container-geral__form">
             <label for="usuario">Usuário</label>
             <input type="text" name="usuario" id="usuario">
@@ -16,9 +17,10 @@
             <input type="text" name="nome" id="nome">
             <label for="senha">Senha</label>
             <input type="text" name="senha" id="senha">
-            <div>
-                <button type="submit">Cadastrar</button>
-                <a href="/">Comentarios</a>
+            <div class="container-geral__form-buttons">
+                <button type="submit" class="container-geral__form-button">Cadastrar</button>
+                <button class="container-geral__form-button"><a href="/mensagem">Comentarios</a></button>
+                <button class="container-geral__form-button"><a href="/">Login</a></button>
             </div>
         </form>
     </section>

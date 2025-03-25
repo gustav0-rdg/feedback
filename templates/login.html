@@ -5,14 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style-login.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <section class="container-geral">
-        <form action="" method="post">
+        
+        <form action="" method="post" class="container-geral__form">
+            <h1>Página de login</h1>
             <label for="usuario">Usuario</label>
             <input type="text" name="usuario" id="usuario">
             <label for="senha">Senha</label>
             <input type="text" name="senha" id="senha">
+            <div class="container-geral__form-buttons">
+                <button class="container-geral__form-button"><a href="/cadastrar">Cadastrar</a></button>
+                <button class="container-geral__form-button"><a href="">Entrar</a></button>
+            </div>
         </form>
     </section>
 </body>

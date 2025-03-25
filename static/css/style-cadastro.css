@@ -1,0 +1,73 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+body {
+    background-color: rgb(199, 221, 255); /* Cor de fundo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Estilo para a seção que contém o formulário */
+.container-geral {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: rgb(169, 202, 246); /* Cor do fundo do formulário */
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo do formulário */
+.container-geral__form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Estilo para os rótulos (labels) */
+.container-geral__form label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Estilo para os inputs */
+.container-geral__form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.container-geral__form-buttons{
+    display: flex;
+    justify-content: space-around;
+}
+/* Estilo para o botão */
+
+.container-geral__form-button a{
+    text-decoration: none;
+    color: white;
+}
+.container-geral__form-button {
+    padding: 10px;
+    background-color: rgb(118, 172, 241); /* Cor do botão */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 33%;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Efeito hover no botão */
+.container-geral__form button:hover {
+    background-color: rgb(141, 190, 255); /* Cor no hover do botão */
+}
