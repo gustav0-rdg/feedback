@@ -24,25 +24,24 @@
                 <input type="text" name="mensagem" id="comentario" class="container-geral__form--input">
                 <div class="container-geral__form-botoes">
                     <button class="container-geral__form--button">Enviar</button>
-                    <button class="container-geral__form--button">Cadastrar</button>
+                    <a href="cadastrar" class="container-geral__form--button">Cadastrar</a>
                 </div>
             </form>
         </div>
 
         <div class="container-geral__mensagens">
             <h1 class="container-geral__mensagens-titulo">Mensagens</h1>
-            {% for mensagem in mensagens %}
+            {% for mensagem in mensagens %} 
                 <div class="container-geral__mensagens-mensagem">
                     <p>Usuario: {{mensagem.nome}}<p>
                     <p>Mensagem: {{mensagem.comentario}} </p>
                     <div class="button-div">
                         <button class="button-mensagens"><a href="/delete/mensagem/{{mensagem.cod_comentario}}">Excluir</a></button>
                         <button class="button-mensagens"><a href="/aumenta/mensagem/{{mensagem.cod_comentario}}">Like</a></button>
-                        <button class="button-mensagens"><a href="">Deslike</a></button>
+                        <button class="button-mensagens"><a href="/diminui/mensagem/{{mensagem.cod_comentario}}">Deslike</a></button>
                     </div>
                     <div>
                         <p>Likes: {{mensagem.curtidas}}</p>
-                        <p>Deslikes: {{mensagem.deslikes}}</p>
                     </div>
                 </div>
             {% endfor %}
