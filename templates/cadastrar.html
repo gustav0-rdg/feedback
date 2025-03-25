@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style-cadastro.css') }}">
+</head>
+<body>
+    <section class="container-geral">
+        <form action="/cadastrar/usuario" method="post" class="container-geral__form">
+            <label for="usuario">Usuário</label>
+            <input type="text" name="usuario" id="usuario">
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" id="nome">
+            <label for="senha">Senha</label>
+            <input type="text" name="senha" id="senha">
+            <div>
+                <button type="submit">Cadastrar</button>
+                <a href="/">Comentarios</a>
+            </div>
+        </form>
+    </section>
+</body>
+</html>
