@@ -9,7 +9,7 @@ from data.conexao import Conexao
 # Importando classe que envia a mensagem para o banco de dados
 from model.controller_mensagem import Mensagem
 from model.controller_usuario import Usuario
-
+from hashlib import sha256
 # Criando a variavel para instanciar o Flask
 app = Flask(__name__)
 

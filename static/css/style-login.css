@@ -1,60 +1,60 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'roboto';
-}
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'roboto';
+    }
 
-.container-geral{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 20px;
-    background-color: rgb(169, 202, 246); /* Cor do fundo do formulário */
-    border-radius: 8px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-}
+    .container-geral{
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 20px;
+        background-color: rgb(169, 202, 246); /* Cor do fundo do formulário */
+        border-radius: 8px;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    }
 
-.container-geral__form{
-    display: flex;
-    flex-direction: column;
-    width: 30%;
-    height:  40%;
-    background-color: rgb(135, 182, 243);
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    border-radius: 10px;
-}
+    .container-geral__form{
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+        height:  40%;
+        background-color: rgb(135, 182, 243);
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        border-radius: 10px;
+    }
 
-.container-geral__form input{
-    width: 80%;
-    height: 14%;
-    padding: 10px;
-    border: none;
-    border-radius: 10px;
-}
+    .container-geral__form input{
+        width: 80%;
+        height: 14%;
+        padding: 10px;
+        border: none;
+        border-radius: 10px;
+    }
 
-.container-geral__form-buttons{
-    width: 100%;
-    height: 15%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 4%;
-}
+    .container-geral__form-buttons{
+        width: 100%;
+        height: 15%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 4%;
+    }
 
-.container-geral__form-button{
-    width: 38%;
-    border: none;
-    height: 100%;
-    border-radius: 10px;
-}
+    .container-geral__form-button{
+        width: 38%;
+        border: none;
+        height: 100%;
+        border-radius: 10px;
+    }
 
-.container-geral__form-button a{
-    text-decoration: none;
-    color: black;
-}
+    .container-geral__form-button a{
+        text-decoration: none;
+        color: black;
+    }
