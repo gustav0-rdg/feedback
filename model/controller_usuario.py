@@ -3,6 +3,7 @@ import datetime
 # Importando classe que cria a conexao
 from data.conexao import Conexao
 from hashlib import sha256
+from flask import session
 class Usuario:
     def cadastrar_usuario(usuario, nome, senha):
         # Criptografando a Senha
@@ -22,26 +23,37 @@ class Usuario:
         conexao.commit()
         # fechando a conexao
         conexao.close()
-        cursorDb.close()
 
     def logar(usuario, senha):
         # Criando a conexão
-        senha= sha256(senha.encode()).hexdigest
+        senha = sha256(senha.encode()).hexdigest()
+
         conexao = Conexao.criar_conexao()
 
-        cursorDb = conexao.cursor(dictionary=True)
-        sql = """
-                SELECT login, senha 
-                FROM tb_usuarios
-                WHERE LOGIN = %s
-                AND BINARY SENHA = %s;
-                """
-        
-        valores = (usuario, senha)
+        try:
+            with conexao.cursor(dictionary=True) as cursorDb:
+                sql = """
+                        SELECT login, nome
+                        FROM tb_usuarios
+                        WHERE login = %s
+                        AND BINARY senha = %s;
+                    """
+                valores = (usuario, senha)
 
-        cursorDb.execute(sql, valores)
-        resultado = cursorDb.fetchall()
-        conexao.close()
-        cursorDb.close()
+                cursorDb.execute(sql, valores)
+                resultado = cursorDb.fetchall()
 
-        return resultado
+                if resultado:
+                    session['usuario'] = resultado[0]['login']
+                    session['nome'] = resultado[0]['nome']
+                    return True
+                else:
+                    return False
+        except mysql.connector.Error as err:
+            print(f"Erro no banco de dados: {err}")
+            return False
+        finally:
+            conexao.close()
+            
+    def logoff():
+        session.clear()
