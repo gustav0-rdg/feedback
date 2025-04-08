@@ -15,6 +15,7 @@
     <section class="container-geral">
         <div class="container-geral__separar">   
             <h1>Comentarios</h1>
+            <h2>Seja Bem-vindo {{ session["nome"]}}</h2>
             <!-- Formulario com os comentarios e nome de usuario -->
             <form action="/post/comentarios" method="post" class="container-geral__form">
                 <label for="nomeUsuario">Nome de usuário </label>
@@ -47,6 +48,8 @@
                 </div>
             {% endfor %}
         </div>
+        <button class="sair"><a href="/sair/usuario">Sair</a></button>
+
     </section>
 
 </body>

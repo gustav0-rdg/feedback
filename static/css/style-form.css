@@ -149,3 +149,13 @@ a{
     text-decoration: none;
         color: black;
 }
+
+.sair{
+    width: 10%;
+    height: 7%;
+    border-radius: 10px;
+    border: 0px;
+    background-color: rgb(141, 190, 255);
+
+}
+
