@@ -1,5 +1,5 @@
 # Importando tudo que vai ser utilizado pelo Flask
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, session
 # Importando datetime pra pegar o horario atual
 import datetime
 # Importando o mysql
@@ -13,14 +13,19 @@ from hashlib import sha256
 # Criando a variavel para instanciar o Flask
 app = Flask(__name__)
 
+app.secret_key = "balofosgogo"
 # Rota inicial
 @app.route("/")
 def pagina_login():
     return render_template("login.html")
+
 @app.route("/mensagem", methods=["GET"])
 def pagina_inicial():
-    mensagens = Mensagem.recuperar_mensagens()
-    return render_template("index.html", mensagens = mensagens)
+    if "usuario" in session:
+        mensagens = Mensagem.recuperar_mensagens()
+        return render_template("index.html", mensagens = mensagens)
+    else:
+        return redirect("/")
 
 # Rota para pegar as informações do formulario
 
@@ -63,4 +68,20 @@ def add_usuario():
     Usuario.cadastrar_usuario(username, nome, senha)
     return redirect("/")
 
-app.run(debug=True, host="0.0.0.0", port=8080)
+@app.route("/post/logar", methods=["POST"])
+def post_logar():
+    usuario = request.form.get("usuario")
+    senha = request.form.get("senha")
+    esta_logado = Usuario.logar(usuario, senha)
+    
+    if esta_logado:
+        return redirect('/mensagem')
+    else:
+        return redirect('/')
+
+@app.route("/sair/usuario", methods=["GET"])
+def logoff():
+    Usuario.logoff()
+    return redirect("/")
+
+app.run(debug=True)
